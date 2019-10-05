@@ -41,3 +41,36 @@ REST API는 각 Endpoint마다 DB SQL Query가 달라지지만 gql API는 gql �
 
 gql에서는 쿼리와 뮤테이션을 나누는데 이 둘은 별 차이는 없지만, 쿼리는 데이터를 읽고, 뮤테이션은 데이터를 변조하는데 사용한다는 개념적인 규약
 
+![일반 쿼리 - 오퍼레이션 네임 쿼리](https://user-images.githubusercontent.com/48010847/66259539-0cd40e00-e7ed-11e9-9d6b-20a5f2eb1aa3.png)
+
+일반 쿼리 - 처음 시작이 중괄호'{' 문자
+오퍼레이션 네임 쿼리 - 시작이 query
+일반적인 클라이언트에서는 static한 쿼리문 작성 안함. 주로 정보를 불러올 때 id값이나 다른 인자값을 가지고 데이터를 불러옴
+gql에는 쿼리에 변수라는 개념이 있는데, gql을 구현한 클라이언트에서는 이 변수에 프로그래밍으로 값을 할당 할 수 있는 함수 인터페이스가 존재.
+react apollo client는 variables라는 파라미터에 원하는 값을 넣는다.
+
+![오퍼레이션 네임 쿼리](https://user-images.githubusercontent.com/48010847/66259599-ba472180-e7ed-11e9-917f-2debb8f284fd.png)
+
+오퍼레이션 네임 쿼리는 편리하다. 비유하자면 쿼리용 함수 이다. DB에서의 프로시져와 비슷함.
+이 개념 덕에 REST API를 호출 할 때와는 다르게 한번의 통신으로 원하는 데이터를 가져올 수 있다.
+DB의 프로시져는 DBA or 백앤드에서 작성 관리하지만, gql 오퍼레이션 네임 쿼리는 클라이언트에서 작성 관리한다.
+gql을 사용하면 백앤드의 의존성이 줄어드나, 데이터 schema에 대한 협업 의존성은 존재.
+
+### 스키마/타입
+
+![스키마/타입](https://user-images.githubusercontent.com/48010847/66259645-4a856680-e7ee-11e9-83ce-72c4d10c4695.png)
+
+* 오브젝트 타입: Character
+* 필드: name, appearsIn
+* 스칼라 타입: String, ID, Int 등
+* 느낌표: 필수값을 의미
+* 대괄호: 배열을 의미
+
+### 리졸버
+
+
+
+
+
+
+[여기서 퍼왔어요](https://tech.kakao.com/2019/08/01/graphql-basic/)
